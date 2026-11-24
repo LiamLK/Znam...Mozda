@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kviz - Povijest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Kviz - Povijest</h1>
+        <p>10 pitanja. Odaberi jedan odgovor.</p>
+    </header>
+
+    <main class="quiz-main">
+
+        <!-- Početni ekran -->
+        <section id="start-screen" class="quiz-box">
+            <h2>Spreman/na za kviz?</h2>
+            <p>Čeka te 10 pitanja iz kategorije Povijest.</p>
+            <button id="start-btn" class="quiz-btn">ZAPOČNI</button>
+            <p><a href="index.html">Vrati se na početnu stranicu</a></p>
+        </section>
+
+        <!-- Izbor težine -->
+        <section id="level-screen" class="quiz-box" hidden>
+            <h2>Izaberi težinu</h2>
+            <p>Za svako pitanje imaš 1 minutu.</p>
+            <div class="levels">
+                <button class="level-btn easy" data-level="easy">Easy</button>
+                <button class="level-btn medium" data-level="medium">Medium</button>
+                <button class="level-btn hard" data-level="hard">Hard</button>
+            </div>
+        </section>
+
+        <!-- Prozor s pitanjem -->
+        <section id="quiz-screen" class="quiz-box" hidden>
+            <p id="progress" class="progress"></p>
+
+            <div class="timer">
+                <div id="timer-bar" class="timer-bar"></div>
+            </div>
+            <p id="timer-text" class="timer-text"></p>
+
+            <div id="question-image" class="question-image">
+                <span>Ovdje ide slika</span>
+            </div>
+
+            <div class="answers">
+                <button class="answer" data-index="0"><b>A</b><span></span></button>
+                <button class="answer" data-index="1"><b>B</b><span></span></button>
+                <button class="answer" data-index="2"><b>C</b><span></span></button>
+                <button class="answer" data-index="3"><b>D</b><span></span></button>
+            </div>
+        </section>
+
+        <!-- Rezultat -->
+        <section id="result-screen" class="quiz-box" hidden>
+            <h2>Kviz je završen!</h2>
+            <p>Težina: <b id="result-level"></b></p>
+            <p class="score">Osvojio/la si <span id="score"></span> bodova</p>
+            <a class="quiz-btn" href="index.html">Povratak na početnu stranicu</a>
+        </section>
+
+    </main>
+
+    <script>
+        /*
+         UREĐIVANJE PITANJA (po 10 pitanja za svaku težinu):
+         slika    - putanja do slike, npr. "slike/tehnologija1.jpg" (prazno = rezerviran prostor)
+         odgovori - tekstovi za A, B, C, D (prazno = prikazuje se samo slovo)
+         tocan    - točan odgovor: 0 = A, 1 = B, 2 = C, 3 = D
+        */
+        const PITANJA = {
+            easy: [
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 }
+            ],
+            medium: [
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 }
+            ],
+            hard: [
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 },
+                { slika: "", odgovori: ["", "", "", ""], tocan: 0 }
+            ]
+        };
+    </script>
+    <script src="quiz.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #eef2f8;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #333;
+}
+
+/* Zaglavlje (podstranice) */
+header {
+    background-color: #004aad;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* ===== Početna: hero ===== */
+.hero {
+    background-color: #004aad; /* ista plava kao u logotipu */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Logo s 3D upitnikom */
+.logo3d {
+    position: relative;
+    width: min(620px, 100%, calc(62vh * 1.2516));
+    aspect-ratio: 4955 / 3959;
+}
+
+.logo3d-bg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+.mark-stage {
+    position: absolute;
+    left: 35.48%;
+    top: 28.37%;
+    width: 27.14%;
+    height: 52.69%;
+    perspective: 900px;
+    cursor: grab;
+    touch-action: none;
+}
+
+.mark-stage.grabbing {
+    cursor: grabbing;
+}
+
+.mark {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.mark-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    user-select: none;
+}
+
+.hint {
+    color: #b9cdee;
+    font-size: 14px;
+    margin: 6px 0 0;
+}
+
+.hero-text {
+    color: white;
+    font-size: 20px;
+    margin: 14px 0 22px;
+}
+
+.start-btn {
+    display: inline-block;
+    background-color: #f2dc6b;
+    color: #0b2d63;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 16px 52px;
+    border-radius: 50px;
+    box-shadow: 0 6px 0 #b9a43c, 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.start-btn:hover {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 #b9a43c, 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.start-btn:focus-visible,
+.category a:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+/* Glavni dio */
+main {
+    width: 85%;
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 70px;
+    scroll-margin-top: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #0b2d63;
+    font-size: 30px;
+}
+
+/* Kategorije */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.category {
+    background-color: white;
+    border-radius: 16px;
+    border-top: 6px solid #f2dc6b;
+    padding: 25px 20px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 40, 100, 0.12);
+    transition: transform 0.2s;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+}
+
+.category .icon {
+    font-size: 44px;
+}
+
+.category h3 {
+    color: #004aad;
+    margin: 10px 0;
+}
+
+.category p {
+    font-size: 14px;
+    min-height: 40px;
+}
+
+/* Gumb */
+.category a {
+    display: inline-block;
+    background-color: #004aad;
+    color: white;
+    text-decoration: none;
+    padding: 10px 24px;
+    margin-top: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.category a:hover {
+    background-color: #0b2d63;
+}
+
+/* Podnožje */
+footer {
+    background-color: #0b2d63;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 60px;
+}
+
+/* ===== Podstranice (kvizovi) ===== */
+body:not(.home) main {
+    padding-top: 0;
+    margin-top: 30px;
+}
+
+.quiz-main {
+    max-width: 700px;
+}
+
+.quiz-box {
+    background-color: white;
+    border-radius: 16px;
+    border-top: 6px solid #f2dc6b;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 40, 100, 0.12);
+}
+
+.quiz-box[hidden] {
+    display: none;
+}
+
+.quiz-btn {
+    display: inline-block;
+    background-color: #004aad;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 44px;
+    margin: 15px 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.quiz-btn:hover {
+    background-color: #0b2d63;
+}
+
+.quiz-btn:focus-visible,
+.answer:focus-visible {
+    outline: 3px solid #f2dc6b;
+    outline-offset: 3px;
+}
+
+.progress {
+    color: #004aad;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.levels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.level-btn {
+    min-width: 130px;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.15s;
+}
+
+.level-btn:hover {
+    transform: translateY(-3px);
+}
+
+.level-btn:focus-visible {
+    outline: 3px solid #0b2d63;
+    outline-offset: 3px;
+}
+
+.level-btn.easy { background-color: #2e8b57; }
+.level-btn.medium { background-color: #f2b134; color: #3a2400; }
+.level-btn.hard { background-color: #c0392b; }
+
+.timer {
+    height: 12px;
+    background-color: #dfe7f3;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.timer-bar {
+    height: 100%;
+    width: 100%;
+    background-color: #2e8b57;
+    transition: width 1s linear, background-color 0.3s;
+}
+
+.timer-bar.low {
+    background-color: #c0392b;
+}
+
+.timer-text {
+    margin: 8px 0 18px;
+    font-size: 15px;
+    color: #555;
+}
+
+.question-image {
+    background-color: #eef2f8;
+    border: 2px dashed #9db5d8;
+    border-radius: 12px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b84ab;
+    overflow: hidden;
+}
+
+.question-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.answer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 60px;
+    background-color: #004aad;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 17px;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.answer b {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background-color: #f2dc6b;
+    color: #0b2d63;
+    border-radius: 50%;
+}
+
+.answer:hover {
+    background-color: #0b2d63;
+}
+
+.score {
+    font-size: 24px;
+    color: #004aad;
+    font-weight: bold;
+}
+
+@media (max-width: 500px) {
+    .hero-text { font-size: 17px; }
+    .start-btn { font-size: 19px; padding: 14px 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .start-btn, .category, .answer, .level-btn, .timer-bar { transition: none; }
+}
+
+@media (max-width: 500px) {
+    .answers { grid-template-columns: 1fr; }
+    .question-image { height: 200px; }
+}
